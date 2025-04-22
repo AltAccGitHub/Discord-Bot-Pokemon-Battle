@@ -1,0 +1,146 @@
+{
+    "774146110221582427": [
+        {
+            "name": "Pikachu",
+            "level": 1,
+            "hp": 30,
+            "damage": 5,
+            "xp": 5
+        },
+        {
+            "name": "Squirtle",
+            "level": 1,
+            "hp": 30,
+            "damage": 5,
+            "xp": 5
+        },
+        {
+            "name": "Pikachu",
+            "level": 1,
+            "hp": 34,
+            "damage": 12,
+            "xp": 5
+        },
+        {
+            "name": "Pikachu",
+            "level": 3,
+            "hp": 43,
+            "damage": 12,
+            "xp": 5
+        },
+        {
+            "name": "Bulbasaur",
+            "level": 6,
+            "hp": 33,
+            "damage": 15,
+            "xp": 0
+        },
+        {
+            "name": "Squirtle",
+            "level": 5,
+            "hp": 31,
+            "damage": 10,
+            "xp": 5
+        },
+        {
+            "name": "Charmander",
+            "level": 5,
+            "hp": 31,
+            "damage": 12,
+            "xp": 5
+        },
+        {
+            "name": "Bulbasaur",
+            "level": 2,
+            "hp": 32,
+            "damage": 10,
+            "xp": 5
+        },
+        {
+            "name": "Charmander",
+            "level": 4,
+            "hp": 43,
+            "damage": 15,
+            "xp": 5
+        },
+        {
+            "name": "Squirtle",
+            "level": 1,
+            "hp": 39,
+            "damage": 12,
+            "xp": 5
+        },
+        {
+            "name": "Squirtle",
+            "level": 4,
+            "hp": 39,
+            "damage": 15,
+            "xp": 5
+        },
+        {
+            "name": "Eevee",
+            "level": 6,
+            "hp": 44,
+            "damage": 10,
+            "xp": 5
+        },
+        {
+            "name": "Snorlax",
+            "level": 6,
+            "hp": 43,
+            "damage": 15,
+            "xp": 5
+        }
+    ],
+    "955117816783192074": [
+        {
+            "name": "Bulbasaur",
+            "level": 5,
+            "hp": 42,
+            "damage": 11,
+            "xp": 5
+        },
+        {
+            "name": "Squirtle",
+            "level": 1,
+            "hp": 32,
+            "damage": 11,
+            "xp": 5
+        },
+        {
+            "name": "Squirtle",
+            "level": 3,
+            "hp": 35,
+            "damage": 10,
+            "xp": 5
+        },
+        {
+            "name": "Pikachu",
+            "level": 1,
+            "hp": 44,
+            "damage": 15,
+            "xp": 5
+        },
+        {
+            "name": "Snorlax",
+            "level": 1,
+            "hp": 42,
+            "damage": 10,
+            "xp": 5
+        },
+        {
+            "name": "Squirtle",
+            "level": 3,
+            "hp": 40,
+            "damage": 14,
+            "xp": 5
+        },
+        {
+            "name": "Charmander",
+            "level": 2,
+            "hp": 36,
+            "damage": 14,
+            "xp": 5
+        }
+    ]
+}
