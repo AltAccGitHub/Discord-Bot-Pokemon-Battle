@@ -144,10 +144,10 @@ async def spawn_raid():
     await channel.send(file=file , embed=embed)
 
 async def spawn_raid_pokemon():
-    global caught_by
+    global caught_bys
     if raid_data["catch_allow"]:
         channel = discord.utils.get(bot.get_all_channels(), name="raid-boss")  # Change channel name
-        caught_by = None
+        caught_bys = None
 
         file = discord.File(f"images/{raid_pokemon.lower()}.png", filename="image.png")
         embed = discord.Embed(
@@ -174,7 +174,6 @@ async def catch(ctx):
             data[user_id] = []
 
         pokemon = create_pokemon(wild_pokemon)
-        await gain_xp(pokemon, 5, ctx)  # Gain XP on catch
         data[user_id].append(pokemon)
         save_data(data)
 
@@ -196,7 +195,6 @@ async def raidcatch(ctx):
                 data[user_id] = []
 
             raid = create_raid_pokemon(raid_pokemon)
-            await gain_xp(raid, 5, ctx)  # Gain XP on catch
             data[user_id].append(raid)
             save_data(data)
 
@@ -415,8 +413,6 @@ async def guide(ctx):
         "`b!fight <number>` - Select a Pokémon to fight with!\n"
         "`b!duel @user` - Challenge another user to a duel!\n"
         "`b!attack` - Attack in the duel!\n"
-        "`b!raid` - Join the Raid!\n"
-        "`b!raidcatch` - Catch a RAID Pokemon!\n"
         "Good luck and have fun!\n"
         "Remember to checkout my website :) https://boltbert.netlify.app/"
     )
