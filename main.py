@@ -108,23 +108,24 @@ async def on_ready():
 @tasks.loop(minutes=5)
 async def spawn_pokemon():
     global wild_pokemon, caught_by
-    channel = discord.utils.get(bot.get_all_channels(), name="general")  # Change channel name
     wild_pokemon = random.choice(WILD_POKEMON)
     caught_by = None
 
-    file = discord.File(f"images/{wild_pokemon.lower()}.png", filename="image.png")
     embed = discord.Embed(
         title="A wild Pokémon appeared!", 
         description=f"It's a **{wild_pokemon}**!\nType `b!catch` to catch it!\nIcon made by Roundicon Freebies from www.flaticon.com",
         color=0x00ff0
         )
     embed.set_thumbnail(url="attachment://image.png")
-    await channel.send(file=file , embed=embed)
+    for guild in bot.guilds:
+        channel = discord.utils.get(guild.text_channels, name="general")  # Change channel name
+        if channel and channel.permissions_for(guild.me).send_messages:
+            file = discord.File(f"images/{wild_pokemon.lower()}.png", filename="image.png")
+            await channel.send(file=file , embed=embed)
 
 @tasks.loop(hours=1)
 async def spawn_raid():
     global raid_pokemon
-    channel = discord.utils.get(bot.get_all_channels(), name="raid-boss")
     raid_pokemon = random.choice(RAID_POKEMON)
     raid_data["name"] = raid_pokemon
     raid_data["active"] = True,
@@ -133,7 +134,6 @@ async def spawn_raid():
     raid_data["hp"] = hp
     raid_data["max_hp"] = hp
 
-    file = discord.File(f"images/{raid_pokemon.lower()}.png" , filename="image.png")
     embed = discord.Embed(
         title="🔥A wild RAID appeared",
         description=f"It's a **{raid_pokemon}**!\n Type `b!raid` to raid it!\nHP : {raid_data['hp']}\nIcon made by HEKTakun",
@@ -141,22 +141,28 @@ async def spawn_raid():
     )
     print(f'Raid Pokemon {raid_pokemon}')
     embed.set_thumbnail(url='attachment://image.png')
-    await channel.send(file=file , embed=embed)
-
+    for guild in bot.guilds:
+        channel = discord.utils.get(guild.text_channels, name="raid-boss")  # Change channel name
+        if channel and channel.permissions_for(guild.me).send_messages:
+            file = discord.File(f"images/{raid_pokemon.lower()}.png" , filename="image.png")
+            await channel.send(file=file , embed=embed)
+            
 async def spawn_raid_pokemon():
     global caught_bys
     if raid_data["catch_allow"]:
-        channel = discord.utils.get(bot.get_all_channels(), name="raid-boss")  # Change channel name
         caught_bys = None
 
-        file = discord.File(f"images/{raid_pokemon.lower()}.png", filename="image.png")
         embed = discord.Embed(
             title="A RAID Pokémon appeared!", 
             description=f"It's a **{raid_pokemon}**!\nType `b!raidcatch` to catch it!\nIcon made by HEKTakun",
             color=0x00ff0
             )
         embed.set_thumbnail(url="attachment://image.png")
-        await channel.send(file=file , embed=embed)
+        for guild in bot.guilds:
+            channel = discord.utils.get(guild.text_channels, name="raid-boss")  # Change channel name
+            if channel and channel.permissions_for(guild.me).send_messages:
+                file = discord.File(f"images/{raid_pokemon.lower()}.png", filename="image.png")
+                await channel.send(file=file , embed=embed)
 
 # ----- Catch Command -----
 @bot.command()
